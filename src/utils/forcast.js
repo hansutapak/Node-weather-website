@@ -8,9 +8,6 @@ export const forcast = (latitude, longitude, callback) => {
     longitude +
     "&units=f";
 
-  //   const forcastUrl =
-  //     "http://api.weatherstack.com/current?access_key=9395699dad0588f3fe4a18f46bd16a8a&query=37.8267,-122.4233&units=f";
-
   request({ url, json: true }, (error, { body } = {}) => {
     if (error) {
       callback("Unable to connect to the weather service!!", undefined);
