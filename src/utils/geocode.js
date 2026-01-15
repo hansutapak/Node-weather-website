@@ -9,6 +9,7 @@ export const geocode = (address, callback) => {
 
   request({ url, json: true }, (error, { body } = {}) => {
     if (error) {
+      console.log("error", error);
       callback("Unable to connect to the geocoding service!!", undefined);
     } else if (body.features.length === 0) {
       callback("Unable to find location!, try searching again!", undefined);
@@ -21,3 +22,6 @@ export const geocode = (address, callback) => {
     }
   });
 };
+
+// pk.eyJ1IjoiZ2FtY2hpYzgiLCJhIjoiY21rNDM5NWJ0MDMyeTNxczlhYzBxaHpneSJ9
+//   .CQ1O9X619eq1m - vHWruuVw;
