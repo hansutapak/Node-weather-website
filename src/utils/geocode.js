@@ -18,6 +18,9 @@ export const geocode = (address, callback) => {
         latitude: body.features[0].properties.coordinates.latitude,
         longitude: body.features[0].properties.coordinates.longitude,
         full_address: body.features[0].properties.full_address,
+        region: body.features[0].properties.context?.region?.name || "N/A",
+        country_code:
+          body.features[0].properties.context?.country.country_code || "N/A",
       });
     }
   });
@@ -25,3 +28,5 @@ export const geocode = (address, callback) => {
 
 // pk.eyJ1IjoiZ2FtY2hpYzgiLCJhIjoiY21rNDM5NWJ0MDMyeTNxczlhYzBxaHpneSJ9
 //   .CQ1O9X619eq1m - vHWruuVw;
+
+//https://api.mapbox.com/search/geocode/v6/forward?q=Newyork&access_token=pk.eyJ1IjoiZ2FtY2hpYzgiLCJhIjoiY21rNDM5NWJ0MDMyeTNxczlhYzBxaHpneSJ9.CQ1O9X619eq1m-vHWruuVw&limit=1

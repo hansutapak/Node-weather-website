@@ -76,13 +76,23 @@ app.get("/weather", (req, res) => {
 
   geocode(
     req.query.address,
-    (error, { latitude, longitude, full_address } = {}) => {
+    (
+      error,
+      { latitude, longitude, full_address, region, country_code } = {},
+    ) => {
       if (error) {
         return res.send({ error });
       }
 
+      const geoMessage = `This is ${full_address} (Latitude: ${latitude}, Longitude: ${longitude})`;
+      const subMessage = `The following region for the address is ${region}, and the code is ${country_code}`;
+
       res.send({
+        geoMessage,
+        subMessage,
         full_address,
+        latitude,
+        longitude,
         address: req.query.address,
       });
     },
